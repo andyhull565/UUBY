@@ -1,23 +1,15 @@
 'use strict';
 
 var uubyApp = angular.module('UubyApp', [
-  'ngRoute'
+  'ngRoute',
+    'UubyApp.charts'
 ]);
 
-uubyApp.config(function ($routeProvider) {
-    $routeProvider
-        .when('/', {
-            templateUrl: '/dashboard/dashboard.html',
-            controller: DashboardController,
-            activetab: 'dashboard'
-        })
-        .when('/charts', {
-            templateUrl: '/charts/charts.html',
-            controller: ChartsController,
-            controllerAs: 'vm',
-            activetab: 'charts'
-        });
+config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('!');
 
-});
+    $routeProvider.otherwise({redirectTo: '/charts'});
+}]);
+
 
 

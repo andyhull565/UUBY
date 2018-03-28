@@ -1,32 +1,40 @@
-function ChartsController ($scope, $route) {
+'use strict';
 
-    var vm = this;
-    vm.addUtility = addUtility;
-    console.log("inside controller");
-    activate();
-    //vm.selectedUtility =
+angular.module('UubyApp.charts', ['ngRoute'])
 
-    function activate() {
-        vm.selectedUtility = "Georgia Power";
+    .config(['$routeProvider', function($routeProvider) {
+        $routeProvider.when('/charts', {
+            templateUrl: 'charts/charts.html',
+            controller: 'ChartsController',
+            controllerAs: 'vm'
+        });
+    }])
+    .controller('ChartsController', [function() {
+        var vm = this;
+        vm.addUtility = addUtility;
+        activate();
 
-        vm.utilities = [
-            "GeorgiaPower",
-            "Georgia Natural Gas",
-            "Gas South",
-            "SCANA Energy",
-            "Commerce Energy",
-            "Infinite Energy",
-            "Watershed Management"
-        ];
+        function activate() {
+            vm.selectedUtility = "Georgia Power";
 
-        vm.utilityOptions = "utility as utility for utility in vm.utilities";
+            vm.utilities = [
+                "GeorgiaPower",
+                "Georgia Natural Gas",
+                "Gas South",
+                "SCANA Energy",
+                "Commerce Energy",
+                "Infinite Energy",
+                "Watershed Management"
+            ];
 
-        vm.utilityUser = null;
-    }
+            vm.utilityOptions = "utility as utility for utility in vm.utilities";
 
-    function addUtility() {
-        console.log(vm.selectedUtility);
-        console.log(vm.utilityUser.username);
-        console.log(vm.utilityUser.password);
-    }
-}
+            vm.utilityUser = null;
+        }
+
+        function addUtility() {
+            console.log(vm.selectedUtility);
+            console.log(vm.utilityUser.username);
+            console.log(vm.utilityUser.password);
+        }
+    }]);

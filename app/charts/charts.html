@@ -1,0 +1,49 @@
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="page-header">
+          <!---Your Usage-->
+            --
+        </h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <form novalidate class="form-inline">
+            <div class="form-group">
+                <label for="utilitySelect">Utility:</label>
+                <select class="form-control" id="utilitySelect" ng-model="vm.selectedUtility"
+                        ng-options="{{ vm.utilityOptions }}" ng-init="vm.selectedUtility=vm.utilities[0]">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="username" class="control-label">Username</label>
+                <input type="text" class="form-control" id="username" ng-model="vm.utilityUser.name" placeholder="Username" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label">Password</label>
+                <input type="text" class="form-control" id="password" ng-model="vm.utilityUser.password" placeholder="Password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </div>
+            <button type="button" class="btn btn-default" ng-click="vm.addUtility()" title="Add Utility">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </form>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+
+          </div>
+          <div class="panel-body">
+            <div id="morris-area-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
